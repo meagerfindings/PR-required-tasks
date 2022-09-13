@@ -29810,6 +29810,9 @@ const main = async () => {
 
     const incompleteTasks = body.includes("- [ ] <!-- required task -->")
 
+    console.log({ body, incompleteTasks });
+    console.log({ conclusion: incompleteTasks ? 'failure' : 'success', });
+
     const githubApi = new github.GitHub(token)
 
     await githubApi.checks.create({
