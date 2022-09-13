@@ -6,9 +6,9 @@ on:
 
 jobs:
 
-  annotate-pr:
+  task-check:
     runs-on: ubuntu-latest
-    name: Checks Required Tasks State
+    name: Required Tasks Status Check
     steps:
       - name: Check for Incomplete Required Tasks
         uses: meagerfindings/PR-required-tasks@main
