@@ -6,7 +6,7 @@ const main = async () => {
 
   try {
     const token = core.getInput('token', { required: true });
-    const body = core.getInput('body', { required: true });
+    const body = github.context.payload.pull_request?.body
 
     const incompleteTasks = body.includes("- [ ] <!-- required task -->")
 
