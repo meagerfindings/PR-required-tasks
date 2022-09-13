@@ -1,0 +1,16 @@
+name: PR Required Tasks
+
+on:
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+
+  annotate-pr:
+    runs-on: ubuntu-latest
+    name: Checks Required Tasks State
+    steps:
+      - name: Check for Incomplete Required Tasks
+        uses: meagerfindings/PR-required-tasks@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
