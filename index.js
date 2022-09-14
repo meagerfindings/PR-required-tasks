@@ -13,9 +13,9 @@ const main = async () => {
     console.log({ body, incompleteTasks });
     console.log({ conclusion: incompleteTasks ? 'failure' : 'success', });
 
-    const githubApi = new github.GitHub(token)
+    const ocotkit = github.getOctokit(token)
 
-    await githubApi.checks.create({
+    await ocotkit.checks.create({
       name,
       head_sha: github.context.payload.pull_request?.head.sha,
       status: 'completed',
