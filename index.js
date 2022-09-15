@@ -15,7 +15,7 @@ const main = async () => {
 
     const ocotkit = github.getOctokit(token)
 
-    const result = await ocotkit.checks.create({
+    const result = await ocotkit.rest.checks.create({
       name,
       head_sha: github.context.payload.pull_request?.head.sha,
       status: 'completed',
