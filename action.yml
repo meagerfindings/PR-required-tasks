@@ -5,3 +5,6 @@ author: 'meagerfindings'
 runs:
   using: 'node16'
   main: 'dist/index.js'
+branding:
+  icon: check-square
+  color: orange
