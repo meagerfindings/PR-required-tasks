@@ -2,6 +2,10 @@
 name: 'PR Required Tasks'
 description: 'Require tasks to be completed in a PR.'
 author: 'meagerfindings'
+inputs:
+  token:
+    description: 'The token to use to access the GitHub API'
+    required: true
 runs:
   using: 'node16'
   main: 'dist/index.js'
