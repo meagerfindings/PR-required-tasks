@@ -31,6 +31,10 @@ const main = async () => {
 
     console.log({ result });
 
+    if (incompleteTasks) {
+      core.setFailed('Some required tasks are incomplete ❌')
+    }
+
   } catch (error) {
     core.setFailed(error.message);
   }
