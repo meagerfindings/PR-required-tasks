@@ -11,6 +11,4 @@ jobs:
     name: Required Tasks Status Check
     steps:
       - name: Check for Incomplete Required Tasks
-        uses: meagerfindings/PR-required-tasks@v0.0.12
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+        uses: meagerfindings/PR-required-tasks@v0.0.13
