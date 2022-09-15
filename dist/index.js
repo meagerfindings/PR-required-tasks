@@ -29813,9 +29813,9 @@ const main = async () => {
     console.log({ body, incompleteTasks });
     console.log({ conclusion: incompleteTasks ? 'failure' : 'success', });
 
-    const githubApi = new github.GitHub(token)
+    const ocotkit = github.getOctokit(token)
 
-    await githubApi.checks.create({
+    const result = await ocotkit.checks.create({
       name,
       head_sha: github.context.payload.pull_request?.head.sha,
       status: 'completed',
@@ -29828,6 +29828,8 @@ const main = async () => {
       owner: github.context.repo.owner,
       repo: github.context.repo.repo
     })
+
+    console.log({ result });
 
   } catch (error) {
     core.setFailed(error.message);

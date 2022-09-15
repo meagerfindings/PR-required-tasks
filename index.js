@@ -15,7 +15,7 @@ const main = async () => {
 
     const ocotkit = github.getOctokit(token)
 
-    await ocotkit.checks.create({
+    const result = await ocotkit.checks.create({
       name,
       head_sha: github.context.payload.pull_request?.head.sha,
       status: 'completed',
@@ -28,6 +28,8 @@ const main = async () => {
       owner: github.context.repo.owner,
       repo: github.context.repo.repo
     })
+
+    console.log({ result });
 
   } catch (error) {
     core.setFailed(error.message);
